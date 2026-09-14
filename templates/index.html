@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <title>Cadastro cliente e Produtos</title>
+        <style>
+            body{ font-family: sans-serif; margin: 30px}
+            .secao{ border: 1px solid #ccc; padding: 15px; margin-bottom: 20px;}
+            table, th, td{ border: 1px solid #333; border-collapse: collapse; padding: 8px}            
+        </style>
+    </head>
+    <body>
+        <h1> Painel de controle</h1>
+    <!--Formulário que aponta para a rota de adicionar cadastro via método post-->
+    <div>
+        <h3> Cadastro de clientes</h3>
+        <form action="/adicionar-cadastro" method="POST">
+            <label > Nome do cliente: </label>
+            <input placeholder="Digite aqui" type="text" name="nome" required>
+
+            <label>Telefone</label>
+            <input placeholder="Digite aqui" type="tel" name="Telefone" required>
+
+            <label>Endreço</label>
+            <input placeholder="Digite aqui" type="text" name="Endereço" required>
+
+            <button type="submit">Salvar Cadastro</button>
+        </form>
+    </div>
+    <div class="secao">
+        <h3> Cadastrar Produto</h3>
+        <form action="/adicionar-produtos" method="POST">
+            <label>Nome do produto:</label>
+            <input placeholder="Digite aqui" type="text" name="nome_produto" required>
+
+            <label>Valor do produto:</label>
+            <input placeholder="Digite aqui" type="number" step="0.01" name="valor" required>
+
+            <label> Tipo de produto: </label>
+            <input placeholder="Digite aqui" type="text" name="tipo" required>
+            <label> Cliente:</label>
+            <select name="cadastro" required>
+                {% for cliente in lista_cadastro%}
+                <option value="{{ cliente['id']}}">{{ cliente['nome']}}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit"">Salvar produto</button>
+        </form>
+    </div>
+    
+    <div class="secao">
+        <h3> Produtos Cadastrados</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Identificação</th>
+                    <th>Nome do Produto</th>
+                    <th>Valor (R$)</th>
+                    <th> Cliente Responsável</th>
+                    <th> Ação</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for prod in lista_produtos %}
+                <tr>
+                    <td> {{prod['id']}}</td>
+                    <td> {{prod['nome']}}</td>
+                    <td> {{prod['valor']}}</td>
+                    <td> {{prod['cadastro_nome']}}</td>
+                    <td> 
+                        <form action="/excluir-produto/{{ prod['id']}}" method="POST">
+                            <button type="submit">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+                {% else %}
+                <tr> 
+                    <td colspan="5">Nenhum produto cadastrado até o momento.</td>
+                </tr>
+                {% endfor %}
+            </tbody> 
+        </table>
+    </div>
+    </body>
+</html>
