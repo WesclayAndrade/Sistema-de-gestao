@@ -1,0 +1,8 @@
+Segundo arquivo escrito direto pela linha de programa
+arquivoi.mode -> indica o modo que o arquivo esta aberto.
+arquivo.name -> o nome como o arquivo foi salvo
+arquivo.closed -> indica se o arquivo esta aberto ou fechado.Tentando incluir um novo textoTentando incluir um novo texto
+Tentando incluir um novo texto
+read -> todo texto em uma única linha de conteúdo
+ readline-> linha de arquivo com os caracteres finais 
+ readlines -> lista em que cada item é uma linha do arquivo 

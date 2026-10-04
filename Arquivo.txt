@@ -1,0 +1,4 @@
+Olá, bem vindo. Primeira aula com código de RAD. 
+Vamos tentar ampliar conceitos. 
+quem sabe sair um programador de verdade. 
+Adicionando texto com o metódo a

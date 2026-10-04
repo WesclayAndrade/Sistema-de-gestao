@@ -1,0 +1,10 @@
+olá mundo.Estamos aprendendo a criar um arquivo e escrever dentro dele Goodbye
+Lembrar sempre de fechar o arquivo no final com nome_arquivo.close
+ open()-> abrir o arquivo
+write -> escrever
+se não incluir o write o arquivo sempre abre como leitura (read)
+sempre que concluir a utilização do arquivo ffinalizar com o .close()
+o caminho absoluto (abspath)-> referência do arquivo no diretório
+caminho relativo (relpath)-> arquivo em outro diretório  
+append -> para aacrescentar algo já existente. pode usar o a támbem somente quando for chamar a abertura do arquivo.
+Lembrar que é necessário importar um OS antes de iniciar o código.
